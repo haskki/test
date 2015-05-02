@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int size_v1,size_v2;
+    cout <<"pls input v1 and v2 size"<<endl;
+    cin >> size_v1;
+    cin >> size_v2;
+
+    int *pv1=new int [size_v1];
+    int *pv2=new int [size_v2];
+    cout << "start to input the vectors"<<endl;
+    cout <<"the first vector v1 is"<< endl;
+    for (int i=0;i<size_v1;i++)
+    {
+
+        cin >> pv1[i];
+    }
+    cout<< "pls input the second vector v2"<<endl;
+    for (int i=0;i<size_v2;i++)
+    {
+        cin >> pv2[i];
+    }
+    int num;
+    bool flag=false;
+    size_v1>size_v2?num=size_v1:num=size_v2;
+    for(int i=0;i< num;i++)
+    {
+        if(pv1[i]==pv2[i])
+        {
+            flag=true;
+            for(int j=i+1;j<num;j++)
+            {
+              if((pv1[i]==pv1[j])||(pv2[i]==pv2[j]))
+                {
+                    cout<< "repeat"<<endl;
+                    flag=false;
+                    break;
+                }
+
+            }
+
+        }
+    }
+    if(flag) cout<< "its contain"<<endl;
+    else cout <<" its not contain"<<endl;
+	delete[] pv1;
+	delete [] pv2;
+    return 0;
+}
